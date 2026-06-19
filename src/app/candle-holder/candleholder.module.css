@@ -1,0 +1,39 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #F3F4F6;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+}
+
+.container {
+  text-align: center;
+}
+
+.emoji {
+  margin: 0 auto 24px auto;
+  display: block;
+
+}
+
+.heading {
+  color: #000;
+  text-align: center;
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-transform: uppercase;
+  margin: 0;
+  margin-top: -150px;
+}

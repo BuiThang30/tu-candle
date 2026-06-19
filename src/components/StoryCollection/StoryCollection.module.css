@@ -1,0 +1,218 @@
+.wrapper {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 120px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  background: #000;
+}
+
+.card {
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card.left {
+  align-self: flex-start;
+}
+
+.card.right {
+  align-self: flex-end;
+}
+
+.card.center {
+  align-self: center;
+}
+
+.slideWrapper {
+  position: relative;
+  width: 900px;
+  height: 900px;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+}
+
+.overlay h3 {
+  color: #000;
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.button {
+  text-decoration: none;
+  border: 1.5px solid #000;
+  border-radius: 999px;
+  padding: 8px 20px;
+  color: #000;
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.button:hover {
+  background: #000;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Dark variant (story thứ 2) */
+.dark .overlay h3 {
+  color: #fff;
+}
+
+.dark .button {
+  color: #fff;
+  border-color: #fff;
+}
+
+.dark .button:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Thanh điều hướng số */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.navArrow {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10 40px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.navArrow:hover {
+  opacity: 1;
+}
+
+.navNumbers {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navNumber {
+  background: transparent;
+  border: none;
+  color: #555;
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.navNumber:hover {
+  color: #aaa;
+}
+
+.navNumberActive {
+  color: #fff;
+  font-weight: 600;
+}
+
+.ytWrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.ytContainer {
+  position: absolute !important;
+
+  width: 1600px !important;
+  height: 900px !important;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border: none;
+  pointer-events: none;
+}
+
+.ytBlocker {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: transparent;
+}
+
+.videoControls {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  gap: 8px;
+  z-index: 20;
+}
+
+.videoBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(0,0,0,.55);
+  color: #fff;
+
+  cursor: pointer;
+}
+
+.videoBtn:hover {
+  background: rgba(0,0,0,.8);
+}
+

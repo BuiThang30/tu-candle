@@ -1,0 +1,59 @@
+.page {
+  width: 1440px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #F3F4F6;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 150px;
+}
+
+.container {
+  max-width: 920px;
+  width: 100%;
+  text-align: center;
+}
+
+.heading {
+  color: #000;
+  text-align: center;
+  font-family: "Public Sans", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-transform: uppercase;
+  margin: 0 0 32px 0;
+}
+
+.body {
+  color: #000;
+  font-family: "Public Sans", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6;
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+}
+
+.link {
+  color: #000;
+  text-decoration: underline;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.divider {
+  margin: 32px 0;
+}

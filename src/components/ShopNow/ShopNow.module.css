@@ -1,0 +1,358 @@
+.container {
+  width: 1440px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  min-height: 100vh;
+
+  padding: 120px 32px 80px;
+  background: #F3F4F6;
+}
+
+/* IMAGE SIDE */
+.imageSide {
+  position: relative;
+  overflow: hidden;
+}
+
+.productImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.imageSide:hover .productImage {
+  transform: scale(1.02);
+}
+
+/* INFO SIDE */
+.infoSide {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  color: #000;
+  text-align: center;
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 56px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.specs {
+  color: #000;
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1.35;
+}
+
+.specs p {
+  margin-bottom: 4px;
+}
+
+.specs strong {
+  font-weight: 900;
+}
+
+.subtitle {
+  margin-top: 28px;
+  margin-bottom: 20px;
+
+  color: #000;
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.concept h4 {
+  color: #000;
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.concept p {
+  color: #000;
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+/* BUY BOX */
+.buyBox {
+  margin-top: 32px;
+
+  border: 1px solid #000;
+  border-radius: 28px;
+  padding: 20px;
+
+  transition: all 0.3s ease;
+}
+
+.buyBox:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.price {
+  color: #000;
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  border: 1px solid #000;
+  border-radius: 999px;
+  padding: 8px 16px;
+
+  color: #000;
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.quantityBtn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #000;
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+
+  transition: all 0.2s ease;
+}
+
+.quantityBtn:hover {
+  transform: scale(1.2);
+  font-weight: 900;
+}
+
+.quantityBtn:active {
+  transform: scale(0.9);
+}
+
+.checkoutBtn {
+  width: 100%;
+  height: 72px;
+
+  border: none;
+  border-radius: 999px;
+
+  background: #000;
+  color: #fff;
+
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+}
+
+.checkoutBtn:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+.checkoutBtn:active {
+  transform: translateY(2px);
+}
+
+.checkoutBtn:focus {
+  outline: none;
+}
+
+/* SOUNDTRACK */
+.soundtrackBox {
+  margin-top: 16px;
+
+  border: 1px solid #000;
+  border-radius: 28px;
+  padding: 20px;
+
+  transition: all 0.3s ease;
+}
+
+.soundtrackBox:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.soundtrackLabel {
+  color: #000;
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.spotifyCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  background: #000;
+  border-radius: 16px;
+  padding: 14px 16px;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  transition: all 0.25s ease;
+}
+
+.spotifyCard:hover {
+  transform: translateY(-2px);
+  background: #111;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.spotifyCard:active {
+  transform: translateY(0);
+}
+
+.spotifyAlbumArt {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #333;
+}
+
+.spotifyAlbumPlaceholder {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #4a4a4a 0%, #2a2a2a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.spotifyInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.spotifyTrack {
+  color: #fff;
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotifyArtist {
+  color: #b3b3b3;
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotifyLogo {
+  flex-shrink: 0;
+}
+
+.spotifyPlayBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #1db954;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.spotifyCard:hover .spotifyPlayBtn {
+  transform: scale(1.08);
+  background: #1ed760;
+}
+
+.soundtrackBox {
+  margin-top: 16px;
+  border: 1px solid #000;
+  border-radius: 28px;
+  padding: 20px;
+}
+
+.soundtrackLabel {
+  color: #000;
+  font-family: "Public Sans", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+
+  margin-bottom: 12px;
+}
+
+.spotifyBanner {
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.spotifyBanner:hover {
+  transform: scale(1.02);
+}
+
+.spotifyBannerImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}

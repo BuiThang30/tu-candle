@@ -30,6 +30,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+body {
+  font-family: var(--font-public-sans), sans-serif;
+}
 
 * {
   box-sizing: border-box;
