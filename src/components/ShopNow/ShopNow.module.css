@@ -358,6 +358,17 @@
   height: auto;
 }
 
+.spotifyEmbed {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.spotifyEmbed iframe {
+  width: 100% !important;
+  border-radius: 12px;
+}
+
 /* ===== 1200px ===== */
 @media (max-width: 1439px) {
   .container {
