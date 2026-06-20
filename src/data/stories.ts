@@ -7,7 +7,7 @@ export const stories: Story[] = [
     slides: [
       { type: "image", src: "/images/tuchangvangsn.jpg" },
       { type: "image", src: "/images/tuchangvangsn.jpg" },
-      { type: "youtube", videoId: "_w2PR0Sko8g" },
+      { type: "youtube", videoId: "9z49qb8H8T0" },
     ],
     href: "/shop/tu-chang-vang",
   },
@@ -16,7 +16,7 @@ export const stories: Story[] = [
     title: "TỤ VÀNG",
     slides: [
       { type: "image", src: "/images/tuvangsn.jpg" },
-      { type: "youtube", videoId: "6uVJqD2hSGQ" },
+      { type: "youtube", videoId: "v5g_3-dIoJ0" },
     ],
     href: "/shop/tu-vang",
   },

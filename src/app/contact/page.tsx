@@ -27,7 +27,7 @@ export default function ContactPage() {
 
             <a
               className={styles.link}
-              href="https://instagram.com"
+              href="https://www.instagram.com/tu.candle_/ "
               target="_blank"
               rel="noopener noreferrer"
             >

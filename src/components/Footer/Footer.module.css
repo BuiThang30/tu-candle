@@ -7,30 +7,99 @@
   align-items: flex-end;
   background: #F3F4F6;
   margin: auto;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .links {
   display: flex;
   gap: 48px;
+  align-items: flex-end;
+  position: relative;
 }
 
-.links a {
+.links > a {
   color: #000;
   text-decoration: none;
-  color: #000;
   font-family: var(--font-public-sans), sans-serif;
   font-size: 24px;
-  font-style: normal;
   font-weight: 900;
   line-height: normal;
   text-transform: uppercase;
   transition: transform 0.3s ease;
 }
-.links a:hover{
+
+.links > a:hover {
   transform: scale(1.05);
 }
 
+/* ── Dropdown "Liên kết" ── */
+.socialDropdown {
+  position: relative;
+}
+
+.lienketBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.3s ease;
+}
+
+.lienketBtn:hover {
+  transform: scale(1.05);
+}
+
+.arrow {
+  font-size: 18px;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.arrowUp {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  z-index: 100;
+}
+
+.dropdownMenu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  color: #000;
+  text-decoration: none;
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+.dropdownMenu a:hover {
+  background: #F3F4F6;
+}
+
+/* ── Star button ── */
 .star {
   border: none;
   background: transparent;
@@ -49,92 +118,49 @@
 
 /* ===== 1200px ===== */
 @media (max-width: 1439px) {
-  .footer {
-    max-width: 100%;
-    padding: 40px 32px 20px;
-  }
-
-  .links {
-    gap: 36px;
-  }
-
-  .links a {
-    font-size: 20px;
-  }
+  .footer { padding: 40px 32px 20px; }
+  .links { gap: 36px; }
+  .links > a,
+  .lienketBtn { font-size: 20px; }
 }
 
 /* ===== 1024px ===== */
 @media (max-width: 1199px) {
-  .footer {
-    max-width: 100%;
-    padding: 32px 24px 20px;
-  }
-
-  .links {
-    gap: 24px;
-  }
-
-  .links a {
-    font-size: 18px;
-  }
-
-  .star {
-    transform: translateY(20px);
-  }
-
-  .star img {
-    width: 90px;
-    height: auto;
-  }
+  .footer { padding: 32px 24px 20px; }
+  .links { gap: 24px; }
+  .links > a,
+  .lienketBtn { font-size: 18px; }
+  .star { transform: translateY(20px); }
+  .star img { width: 90px; height: auto; }
 }
 
 /* ===== 768px ===== */
 @media (max-width: 1023px) {
   .footer {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     text-align: center;
     gap: 32px;
     padding: 24px 20px;
+    overflow: visible;
   }
-
   .links {
     flex-direction: column;
     align-items: center;
     gap: 16px;
   }
-
-  .links a {
-    font-size: 16px;
-  }
-
-  .star {
-    transform: none;
-  }
-
-  .star img {
-    width: 60px;
-    height: auto;
-  }
+  .links > a,
+  .lienketBtn { font-size: 16px; }
+  .dropdownMenu { left: 50%; transform: translateX(-50%); bottom: calc(100% + 8px); }
+  .star { transform: none; }
+  .star img { width: 60px; height: auto; }
 }
 
 /* ===== 480px ===== */
 @media (max-width: 767px) {
-  .footer {
-    padding: 20px 16px;
-    gap: 24px;
-  }
-
-  .links {
-    gap: 12px;
-  }
-
-  .links a {
-    font-size: 14px;
-  }
-
-  .star img {
-    width: 50px;
-    height: auto;
-  }
+  .footer { padding: 20px 16px; gap: 24px; }
+  .links { gap: 12px; }
+  .links > a,
+  .lienketBtn { font-size: 14px; }
+  .star img { width: 50px; height: auto; }
 }

@@ -283,6 +283,12 @@ a.secondary {
     width: 996px; /* 560 * 16 / 9 */
     height: 560px;
   }
+
+  .storyBtn {
+    font-size: 18px;
+    padding: 6px 14px;
+    bottom: 28px;
+  }
 }
 
 /* ===== 480px ===== */
@@ -295,5 +301,11 @@ a.secondary {
   .heroVideo {
     width: 676px;
     height: 360px;
+  }
+
+  .storyBtn {
+    font-size: 14px;
+    padding: 5px 12px;
+    bottom: 20px;
   }
 }
