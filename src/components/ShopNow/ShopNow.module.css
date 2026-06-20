@@ -1,5 +1,6 @@
 .container {
-  width: 1440px;
+  max-width: 1440px;
+  width: 100%;
   margin: 0 auto;
 
   display: grid;
@@ -355,4 +356,184 @@
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* ===== 1200px ===== */
+@media (max-width: 1439px) {
+  .container {
+    width: 100%;
+    padding: 110px 24px 60px;
+    gap: 32px;
+  }
+
+  .title {
+    font-size: 46px;
+  }
+
+  .price {
+    font-size: 30px;
+  }
+
+  .checkoutBtn {
+    font-size: 30px;
+  }
+}
+
+/* ===== 1024px ===== */
+@media (max-width: 1199px) {
+  .container {
+    width: 100%;
+    padding: 100px 20px 50px;
+    gap: 24px;
+  }
+
+  .title {
+    font-size: 38px;
+  }
+
+  .specs,
+  .concept p,
+  .concept h4,
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .price {
+    font-size: 28px;
+  }
+
+  .quantity {
+    font-size: 20px;
+    gap: 14px;
+  }
+
+  .checkoutBtn {
+    height: 64px;
+    font-size: 28px;
+  }
+}
+
+/* ===== 768px ===== */
+@media (max-width: 1023px) {
+  .container {
+    grid-template-columns: 1fr;
+    width: 100%;
+    min-height: auto;
+    padding: 90px 16px 40px;
+    gap: 24px;
+  }
+
+  .imageSide {
+    order: 1;
+  }
+
+  .infoSide {
+    order: 2;
+  }
+
+  .title {
+    font-size: 32px;
+    text-align: left;
+  }
+
+  .specs,
+  .concept p,
+  .concept h4,
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .topRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .price {
+    font-size: 24px;
+  }
+
+  .quantity {
+    font-size: 18px;
+  }
+
+  .checkoutBtn {
+    height: 58px;
+    font-size: 24px;
+  }
+
+  .soundtrackLabel {
+    font-size: 18px;
+  }
+}
+
+/* ===== 480px ===== */
+@media (max-width: 767px) {
+  .container {
+    padding: 80px 12px 30px;
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .specs,
+  .concept p,
+  .concept h4,
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .buyBox,
+  .soundtrackBox {
+    padding: 14px;
+    border-radius: 20px;
+  }
+
+  .price {
+    font-size: 20px;
+  }
+
+  .quantity {
+    width: 100%;
+    justify-content: space-between;
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+
+  .quantityBtn {
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
+  }
+
+  .checkoutBtn {
+    height: 52px;
+    font-size: 18px;
+  }
+
+  .soundtrackLabel {
+    font-size: 16px;
+  }
+
+  .spotifyTrack {
+    font-size: 14px;
+  }
+
+  .spotifyArtist {
+    font-size: 12px;
+  }
+
+  .spotifyAlbumArt,
+  .spotifyAlbumPlaceholder {
+    width: 42px;
+    height: 42px;
+  }
+
+  .spotifyPlayBtn {
+    width: 30px;
+    height: 30px;
+  }
 }

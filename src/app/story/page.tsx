@@ -19,12 +19,12 @@ export default function Story() {
         </h2>
 
         <p className={styles.description}>
-          GIỮA KHOẢNH KHẮC GIAO THOA CỦA ÁNH SÁNG CHẠNG<br />
-          VÀ BÓNG TỐI, MỘT KHÔNG GIAN DỊU ÊM ĐƯỢC<br />
-          THẮP LÊN, MANG THEO LỜI HẠN ĐẦY TỈ MỈ. BÊN CẠNH<br />
-          NHỮNG CÂY NẾN CÓ HƯƠNG THƠM TỰ NHIÊN, NẾN TỤ HỌP<br />
-          THỔI THÊM MỘT KHÔNG GIAN THỂ HIỆN CỦA<br />
-          SỰ TỎA CẢM, ÁNH SÁNG DỊU ÊM VÀ SỰ GẮN KẾT.<br />
+          GIỮA KHOẢNH KHẮC GIAO THOA CỦA ÁNH SÁNG CHẠNG
+          VÀ BÓNG TỐI, MỘT KHÔNG GIAN DỊU ÊM ĐƯỢC
+          THẮP LÊN, MANG THEO LỜI HẠN ĐẦY TỈ MỈ. BÊN CẠNH
+          NHỮNG CÂY NẾN CÓ HƯƠNG THƠM TỰ NHIÊN, NẾN TỤ HỌP
+          THỔI THÊM MỘT KHÔNG GIAN THỂ HIỆN CỦA
+          SỰ TỎA CẢM, ÁNH SÁNG DỊU ÊM VÀ SỰ GẮN KẾT.
         </p>
 
         <div className={styles.imageGrid}>

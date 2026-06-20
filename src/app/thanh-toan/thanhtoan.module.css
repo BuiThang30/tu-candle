@@ -306,3 +306,229 @@
 .bankInfo p {
   margin: 0;
 }
+
+/* =========================
+   <= 1200px
+========================= */
+@media (max-width: 1439px) {
+  .main {
+    padding: 30px 32px 70px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr 380px;
+    gap: 50px;
+  }
+
+  .sectionTitle,
+  .paymentTitle {
+    font-size: 22px;
+  }
+
+  .orderBtn {
+    font-size: 28px;
+  }
+}
+
+/* =========================
+   <= 1024px
+========================= */
+@media (max-width: 1199px) {
+  .main {
+    padding: 24px 24px 60px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr 340px;
+    gap: 40px;
+    margin-top: 80px;
+  }
+
+  .sectionTitle,
+  .paymentTitle {
+    font-size: 20px;
+  }
+
+  .label,
+  .input,
+  .productName,
+  .productPrice,
+  .orderRow {
+    font-size: 16px;
+  }
+
+  .totalLabel,
+  .totalAmount {
+    font-size: 22px;
+  }
+
+  .orderBtn {
+    font-size: 24px;
+    padding: 16px;
+  }
+}
+
+/* =========================
+   <= 768px
+========================= */
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionTitle,
+  .paymentTitle {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .label {
+    font-size: 16px;
+  }
+
+  .input {
+    font-size: 16px;
+    padding: 10px 12px;
+  }
+
+  .orderCard {
+    padding: 18px;
+  }
+
+  .productImg {
+    width: 56px;
+    height: 56px;
+  }
+
+  .productName,
+  .productPrice,
+  .orderRow {
+    font-size: 16px;
+  }
+
+  .totalLabel,
+  .totalAmount {
+    font-size: 20px;
+  }
+
+  .paymentDesc,
+  .bankInfo {
+    font-size: 15px;
+  }
+
+  .orderBtn {
+    font-size: 22px;
+    padding: 15px;
+  }
+
+  .successBox {
+    margin: 50px auto;
+    padding: 0 16px;
+  }
+
+  .successBox h2 {
+    font-size: 20px;
+  }
+
+  .successBox p {
+    font-size: 16px;
+  }
+
+  .backBtn {
+    font-size: 18px;
+  }
+}
+
+/* =========================
+   <= 480px
+========================= */
+@media (max-width: 767px) {
+  .main {
+    padding: 20px 14px 50px;
+  }
+
+  .layout {
+    margin-top: 40px;
+    gap: 30px;
+  }
+
+  .sectionTitle,
+  .paymentTitle {
+    font-size: 16px;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+
+  .input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .error {
+    font-size: 12px;
+  }
+
+  .orderCard {
+    padding: 14px;
+  }
+
+  .orderItem {
+    gap: 10px;
+  }
+
+  .productImg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .productName,
+  .productPrice,
+  .orderRow {
+    font-size: 14px;
+  }
+
+  .totalLabel,
+  .totalAmount {
+    font-size: 18px;
+  }
+
+  .shippingNote,
+  .paymentDesc,
+  .bankInfo {
+    font-size: 13px;
+  }
+
+  .orderBtn {
+    font-size: 18px;
+    padding: 14px;
+  }
+
+  .successIcon {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+  }
+
+  .successBox h2 {
+    font-size: 18px;
+  }
+
+  .successBox p {
+    font-size: 14px;
+  }
+
+  .backBtn {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+}

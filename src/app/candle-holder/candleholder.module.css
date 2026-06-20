@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   background: #F3F4F6;
-  max-width: 1440px;
+  width: 1440px;
   margin: 0 auto;
 }
 
@@ -36,4 +36,93 @@
   text-transform: uppercase;
   margin: 0;
   margin-top: -150px;
+}
+
+/* =========================
+   <= 1200px
+========================= */
+@media (max-width: 1439px) {
+  .page {
+    max-width: 100%;
+  }
+
+  .main {
+    padding: 70px 20px;
+  }
+
+  .emoji img,
+  .emoji {
+    width: 280px;
+    height: auto;
+  }
+
+  .heading {
+    font-size: 28px;
+    margin-top: -120px;
+  }
+}
+
+/* =========================
+   <= 1024px
+========================= */
+@media (max-width: 1199px) {
+  .main {
+    padding: 60px 20px;
+  }
+
+  .emoji img,
+  .emoji {
+    width: 240px;
+    height: auto;
+  }
+
+  .heading {
+    font-size: 24px;
+    margin-top: -100px;
+    padding: 0 20px;
+  }
+}
+
+/* =========================
+   <= 768px
+========================= */
+@media (max-width: 1023px) {
+  .main {
+    padding: 50px 16px;
+  }
+
+  .emoji img,
+  .emoji {
+    width: 180px;
+    height: auto;
+  }
+
+  .heading {
+    font-size: 20px;
+    margin-top: -70px;
+    line-height: 1.4;
+    padding: 0 12px;
+  }
+}
+
+/* =========================
+   <= 480px
+========================= */
+@media (max-width: 767px) {
+  .main {
+    padding: 40px 12px;
+  }
+
+  .emoji img,
+  .emoji {
+    width: 120px;
+    height: auto;
+  }
+
+  .heading {
+    font-size: 16px;
+    margin-top: -40px;
+    line-height: 1.5;
+    padding: 0 10px;
+  }
 }

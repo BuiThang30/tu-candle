@@ -7,7 +7,8 @@
 
 .content {
   position: relative;
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
   height: 1056px;
   overflow: hidden;
 }
@@ -31,4 +32,87 @@
   inset: 0;
   z-index: 10;
   background: transparent;
+}
+
+.muteBtn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s;
+}
+
+.muteBtn:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.muteBtn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ===== 1200px ===== */
+@media (max-width: 1439px) {
+  .content {
+    width: 100%;
+    height: 850px;
+  }
+
+  .heroVideo {
+    width: 1511px; /* 850 * 16 / 9 */
+    height: 850px;
+  }
+}
+
+/* ===== 1024px ===== */
+@media (max-width: 1199px) {
+  .content {
+    width: 100%;
+    height: 720px;
+  }
+
+  .heroVideo {
+    width: 1280px; /* 720 * 16 / 9 */
+    height: 720px;
+  }
+}
+
+/* ===== 768px ===== */
+@media (max-width: 1023px) {
+  .content {
+    width: 100%;
+    height: 560px;
+  }
+
+  .heroVideo {
+    width: 996px; /* 560 * 16 / 9 */
+    height: 560px;
+  }
+}
+
+/* ===== 480px ===== */
+@media (max-width: 767px) {
+  .content {
+    width: 100%;
+    height: 380px;
+  }
+
+  .heroVideo {
+    width: 676px; /* 380 * 16 / 9 */
+    height: 380px;
+  }
 }

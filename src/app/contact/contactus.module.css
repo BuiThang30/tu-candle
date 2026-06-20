@@ -2,7 +2,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  max-width: 1440px;
+  width: 1440px;
   margin: 0 auto;
 }
 
@@ -58,4 +58,99 @@
 
 .link:hover {
   opacity: 0.7;
+}
+
+/* =========================
+   <= 1200px
+========================= */
+@media (max-width: 1439px) {
+  .main {
+    padding: 70px 24px;
+  }
+
+  .container {
+    max-width: 760px;
+  }
+
+  .heading {
+    font-size: 28px;
+  }
+
+  .link {
+    font-size: 22px;
+  }
+}
+
+/* =========================
+   <= 1024px
+========================= */
+@media (max-width: 1199px) {
+  .main {
+    padding: 60px 24px;
+  }
+
+  .container {
+    max-width: 680px;
+  }
+
+  .heading {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .link {
+    font-size: 20px;
+  }
+}
+
+/* =========================
+   <= 768px
+========================= */
+@media (max-width: 1023px) {
+  .main {
+    padding: 50px 20px;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .heading {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .links {
+    gap: 10px;
+  }
+
+  .link {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+
+/* =========================
+   <= 480px
+========================= */
+@media (max-width: 767px) {
+  .main {
+    padding: 40px 16px;
+  }
+
+  .heading {
+    font-size: 16px;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .links {
+    gap: 12px;
+  }
+
+  .link {
+    font-size: 14px;
+    line-height: 1.6;
+    word-break: break-word;
+  }
 }

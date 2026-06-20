@@ -54,8 +54,8 @@ export const products: Product[] = [
     spotify: {
       trackName: "Meditation No.1",
       artist: "Laraaji, Brian Eno",
-      url: "https://open.spotify.com/track/1234567890", // ← thay link thật
-      albumArt: null, // ← hoặc "/images/album-changvang.jpg"
+      url: "https://open.spotify.com/playlist/5w0q5eXvsDS73xj0YTqpBs?si=wRb8GqXTQleewkR253st-g&nd=1&dlsi=84d377203b854c8c",
+      albumArt: null,
     },
   },
 
@@ -85,7 +85,7 @@ export const products: Product[] = [
     spotify: {
       trackName: "Meditation No.1",
       artist: "Laraaji, Brian Eno",
-      url: "https://open.spotify.com/track/1234567890", // ← thay link thật
+      url: "https://open.spotify.com/playlist/4O4mteJOR4c4dPZ5E7NQXk?si=PZpt-DyrTqWzcrmu9W-_yg&nd=1&dlsi=ec120cf81c5f4dd6",
       albumArt: null,
     },
   },
@@ -116,7 +116,7 @@ export const products: Product[] = [
     spotify: {
       trackName: "Meditation No.1",
       artist: "Laraaji, Brian Eno",
-      url: "https://open.spotify.com/track/1234567890", // ← thay link thật
+      url: "https://open.spotify.com/playlist/7mNK8nj4zol90sCct4TEN2?si=aRNl52vLS8ysUzOKMLMFsg&nd=1&dlsi=f457c8b18c034863",
       albumArt: null,
     },
   },
