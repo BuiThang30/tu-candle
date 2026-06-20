@@ -19,12 +19,7 @@ export default function Story() {
         </h2>
 
         <p className={styles.description}>
-          GIỮA KHOẢNH KHẮC GIAO THOA CỦA ÁNH SÁNG CHẠNG
-          VÀ BÓNG TỐI, MỘT KHÔNG GIAN DỊU ÊM ĐƯỢC
-          THẮP LÊN, MANG THEO LỜI HẠN ĐẦY TỈ MỈ. BÊN CẠNH
-          NHỮNG CÂY NẾN CÓ HƯƠNG THƠM TỰ NHIÊN, NẾN TỤ HỌP
-          THỔI THÊM MỘT KHÔNG GIAN THỂ HIỆN CỦA
-          SỰ TỎA CẢM, ÁNH SÁNG DỊU ÊM VÀ SỰ GẮN KẾT.
+          Giữa khoảnh khắc giao thoa của ánh sáng chạng vạng và bóng tối, một quầng sáng dịu êm được thắp lên, mang theo lực hấp dẫn vô hình, bẻ cong khoảng cách và kéo các bản thể tụ lại bên nhau. NẾN TỤ HỌP tái lập trật tự không gian: Thế giới của sự tối giản, ánh sáng dịu êm và sự gắn kết.
         </p>
 
         <div className={styles.imageGrid}>
