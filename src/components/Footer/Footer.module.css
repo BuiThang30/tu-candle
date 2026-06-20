@@ -2,6 +2,7 @@
   max-width: 1440px;
   width: 100%;
   padding: 50px 50px 20px;
+  border-bottom: 0px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
