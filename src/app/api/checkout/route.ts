@@ -6,7 +6,7 @@ import nodemailer from "nodemailer";
 // =============================================
 const CONFIG = {
   // Google Sheets
-  SHEET_WEBHOOK_URL: process.env.GOOGLE_SHEET_WEBHOOK_URL || "", // URL từ Google Apps Script
+  SHEET_WEBHOOK_URL: process.env.GOOGLE_SHEET_WEBHOOK_URL || "",
 
   // Email người bán
   SELLER_EMAIL: process.env.SELLER_EMAIL || "shop@example.com",
@@ -15,8 +15,8 @@ const CONFIG = {
   // SMTP (dùng Gmail)
   SMTP_HOST: "smtp.gmail.com",
   SMTP_PORT: 587,
-  SMTP_USER: process.env.SMTP_USER || "",       // Gmail của bạn
-  SMTP_PASS: process.env.SMTP_PASS || "",       // App Password của Gmail
+  SMTP_USER: process.env.SMTP_USER || "",
+  SMTP_PASS: (process.env.SMTP_PASS || "").replace(/\s/g, ""),
 };
 
 // Format tiền VND
@@ -38,7 +38,7 @@ interface OrderData {
   tongTien: number;
 }
 
-// Gửi dữ liệu vào Google Sheets qua Apps Script webhook
+// Gửi dữ liệu vào Google Sheets
 async function saveToGoogleSheet(data: Record<string, string | number>) {
   if (!CONFIG.SHEET_WEBHOOK_URL) {
     console.warn("GOOGLE_SHEET_WEBHOOK_URL chưa được cấu hình");
@@ -54,24 +54,11 @@ async function saveToGoogleSheet(data: Record<string, string | number>) {
   }
 }
 
-// Tạo transporter email
-function createTransporter() {
-  return nodemailer.createTransport({
-    host: CONFIG.SMTP_HOST,
-    port: CONFIG.SMTP_PORT,
-    secure: false,
-    auth: {
-      user: CONFIG.SMTP_USER,
-      pass: CONFIG.SMTP_PASS,
-    },
-  });
-}
-
 // Email gửi cho người bán
 function sellerEmailHTML(order: OrderData) {
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #111;">
-      <h2 style="border-bottom: 2px solid #111; padding-bottom: 12px;">🛒 Đơn hàng mới!</h2>
+      <h2 style="border-bottom: 2px solid #111; padding-bottom: 12px;">Đơn hàng mới!</h2>
       <table style="width:100%; border-collapse: collapse; font-size: 14px;">
         <tr><td style="padding: 8px 0; color: #666;">Họ tên</td><td><strong>${order.ho} ${order.ten}</strong></td></tr>
         <tr><td style="padding: 8px 0; color: #666;">SĐT</td><td>${order.soDienThoai}</td></tr>
@@ -112,47 +99,154 @@ export async function POST(req: NextRequest) {
     const order = await req.json() as OrderData;
 
     // 1. Lưu vào Google Sheets
-    await saveToGoogleSheet({
-      thoiGian: new Date().toLocaleString("vi-VN"),
-      ho: order.ho,
-      ten: order.ten,
-      soDienThoai: order.soDienThoai,
-      email: order.email,
-      tinh: order.tinh,
-      phuong: order.phuong,
-      soNha: order.soNha,
-      sanPham: order.sanPham,
-      soLuong: order.soLuong,
-      tongTien: order.tongTien,
-    });
+    try {
+      await saveToGoogleSheet({
+        thoiGian: new Date().toLocaleString("vi-VN"),
+        ho: order.ho,
+        ten: order.ten,
+        soDienThoai: order.soDienThoai,
+        email: order.email,
+        tinh: order.tinh,
+        phuong: order.phuong,
+        soNha: order.soNha,
+        sanPham: order.sanPham,
+        soLuong: order.soLuong,
+        tongTien: order.tongTien,
+      });
+      console.log("[Sheets] Lưu thành công");
+    } catch (sheetErr) {
+      console.error("[Sheets] Lỗi:", sheetErr);
+    }
 
     // 2. Gửi email
     if (CONFIG.SMTP_USER && CONFIG.SMTP_PASS) {
-      const transporter = createTransporter();
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: CONFIG.SMTP_USER,
+          pass: CONFIG.SMTP_PASS,
+        },
+      });
 
-      await Promise.all([
-        // Email cho người bán
+      try {
+        await transporter.verify();
+        console.log("[SMTP] Kết nối thành công");
+      } catch (verifyErr) {
+        console.error("[SMTP] Lỗi kết nối:", verifyErr);
+        throw new Error(
+          "Không thể kết nối SMTP: " +
+            (verifyErr instanceof Error
+              ? verifyErr.message
+              : String(verifyErr))
+        );
+      }
+
+      const sellerText = `
+    ĐƠN HÀNG MỚI
+
+    Khách hàng: ${order.ho} ${order.ten}
+    SĐT: ${order.soDienThoai}
+    Email: ${order.email}
+
+    Địa chỉ:
+    ${order.soNha}, ${order.phuong}, ${order.tinh}
+
+    Sản phẩm:
+    ${order.sanPham} x ${order.soLuong}
+
+    Tổng tiền:
+    ${formatVND(order.tongTien)}
+
+    Thời gian:
+    ${new Date().toLocaleString("vi-VN")}
+    `;
+
+      const customerText = `
+    Xin chào ${order.ho} ${order.ten},
+
+    Cảm ơn bạn đã đặt hàng tại TỤ Candle.
+
+    Thông tin đơn hàng:
+
+    Sản phẩm: ${order.sanPham}
+    Số lượng: ${order.soLuong}
+
+    Địa chỉ giao hàng:
+    ${order.soNha}, ${order.phuong}, ${order.tinh}
+
+    Tổng tiền:
+    ${formatVND(order.tongTien)}
+
+    Chúng tôi sẽ sớm liên hệ để xác nhận đơn hàng.
+
+    Trân trọng,
+    TỤ Candle Shop
+    `;
+
+      const [sellerResult, customerResult] = await Promise.allSettled([
         transporter.sendMail({
-          from: `"TU Shop" <${CONFIG.SMTP_USER}>`,
+          from: `"TỤ Candle Shop" <${CONFIG.SMTP_USER}>`,
+          replyTo: CONFIG.SMTP_USER,
           to: CONFIG.SELLER_EMAIL,
-          subject: `🛒 Đơn hàng mới - ${order.ho} ${order.ten}`,
+
+          subject: `Đơn hàng mới từ ${order.ho} ${order.ten}`,
+
+          text: sellerText,
           html: sellerEmailHTML(order),
+
+          headers: {
+            "X-Mailer": "TỤ Candle Shop",
+          },
         }),
-        // Email xác nhận cho khách hàng
+
         transporter.sendMail({
-          from: `"TU Shop" <${CONFIG.SMTP_USER}>`,
+          from: `"TỤ Candle Shop" <${CONFIG.SMTP_USER}>`,
+          replyTo: CONFIG.SMTP_USER,
           to: order.email,
-          subject: "Xác nhận đơn hàng từ TU",
+
+          subject: "TỤ Candle - Xác nhận đơn hàng",
+
+          text: customerText,
           html: customerEmailHTML(order),
+
+          headers: {
+            "X-Mailer": "TỤ Candle Shop",
+          },
         }),
       ]);
+
+      if (sellerResult.status === "fulfilled") {
+        console.log(
+          "[Email] Gửi cho người bán thành công:",
+          sellerResult.value.messageId
+        );
+      } else {
+        console.error(
+          "[Email] Lỗi gửi cho người bán:",
+          sellerResult.reason
+        );
+      }
+
+      if (customerResult.status === "fulfilled") {
+        console.log(
+          "[Email] Gửi cho khách hàng thành công:",
+          customerResult.value.messageId
+        );
+      } else {
+        console.error(
+          "[Email] Lỗi gửi cho khách hàng:",
+          customerResult.reason
+        );
+      }
     } else {
-      console.warn("SMTP chưa được cấu hình, bỏ qua gửi email");
+      console.warn(
+        "[SMTP] Chưa cấu hình SMTP_USER hoặc SMTP_PASS, bỏ qua gửi email"
+      );
     }
 
     return NextResponse.json({ success: true, message: "Đặt hàng thành công" });
   } catch (err: unknown) {
-    console.error("Checkout error:", err);
+    console.error("[Checkout] Lỗi:", err);
     const message = err instanceof Error ? err.message : "Lỗi server";
     return NextResponse.json(
       { success: false, message },

@@ -13,8 +13,8 @@ const publicSans = Public_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "TU Candle",
-  description: "TU Candle",
+  title: "TỤ CANDLE",
+  description: "TỤ CANDLE",
 };
 
 export default function RootLayout({

@@ -150,7 +150,7 @@
   }
   .links > a,
   .lienketBtn { font-size: 16px; }
-  .dropdownMenu { left: 50%; transform: translateX(-50%); bottom: calc(100% + 8px); }
+  .dropdownMenu { left: 80%; transform: translateX(-50%); bottom: calc(100% + 8px); }
   .star { transform: none; }
   .star img { width: 60px; height: auto; }
 }

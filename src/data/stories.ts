@@ -3,7 +3,7 @@ import { Story } from "@/types/story";
 export const stories: Story[] = [
   {
     id: 1,
-    title: "TỤ CHẠNG VÀNG",
+    title: "TỤ CHẠNG VẠNG",
     slides: [
       { type: "image", src: "/images/tuchangvangsn.jpg" },
       { type: "image", src: "/images/tuchangvangsn.jpg" },
