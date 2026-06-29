@@ -10,7 +10,7 @@ const CONFIG = {
 
   // Email người bán
   SELLER_EMAIL: process.env.SELLER_EMAIL || "shop@example.com",
-  SELLER_NAME: "TU Shop",
+  SELLER_NAME: "TU Candle",
 
   // SMTP (dùng Gmail)
   SMTP_HOST: "smtp.gmail.com",
@@ -76,10 +76,11 @@ function sellerEmailHTML(order: OrderData) {
 function customerEmailHTML(order: OrderData) {
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #111;">
-      <h1 style="font-size: 28px; font-weight: 900; letter-spacing: -1px; margin-bottom: 4px;">TU</h1>
-      <h2 style="border-bottom: 2px solid #111; padding-bottom: 12px;">Xác nhận đơn hàng</h2>
+      <h2 style="font-weight: 700; font-size: 28px; border-bottom: 2px solid #111; padding-bottom: 12px; margin-bottom: 20px; margin-top: 0;">TỤ CANDLE</h2>
+      <h2 style="font-weight: 700; font-size: 18px; border-bottom: 2px solid #111; padding-bottom: 12px; margin-bottom: 20px; margin-top: 0;">XÁC NHẬN ĐƠN HÀNG</h2>
       <p>Xin chào <strong>${order.ho} ${order.ten}</strong>,</p>
-      <p>Cảm ơn bạn đã đặt hàng tại TU. Chúng tôi đã nhận được đơn hàng của bạn và sẽ sớm liên hệ để xác nhận.</p>
+      <p>Cảm ơn bạn đã lựa chọn <strong>TỤ CANDLE</strong> 🕯🥰.</p>
+      <p>Đơn hàng của bạn đã được tiếp nhận. Chúng tôi sẽ sớm liên hệ để xác nhận và chuẩn bị đơn hàng.</p>
       <div style="background: #f9f9f9; border-radius: 8px; padding: 20px; margin: 20px 0;">
         <h3 style="margin-top:0; font-size:13px; letter-spacing: 0.1em;">CHI TIẾT ĐƠN HÀNG</h3>
         <table style="width:100%; border-collapse: collapse; font-size: 14px;">
@@ -88,8 +89,9 @@ function customerEmailHTML(order: OrderData) {
           <tr style="border-top: 1px solid #ddd;"><td style="padding: 10px 0 0; font-weight: 700;">Tổng tiền</td><td style="padding: 10px 0 0; font-weight: 700; color: #e53935;">${formatVND(order.tongTien)}</td></tr>
         </table>
       </div>
-      <p style="color: #666; font-size: 13px;">Nếu có thắc mắc, vui lòng liên hệ qua email này hoặc gọi cho chúng tôi.</p>
-      <p style="color: #666; font-size: 13px;">Trân trọng,<br/><strong>TU Shop</strong></p>
+      <p>Nếu cần hỗ trợ, bạn có thể phản hồi trực tiếp email này.</p>
+      <br/>
+      <p>Trân trọng,<br/><strong>TỤ CANDLE</strong></p>
     </div>
   `;
 }
@@ -135,9 +137,7 @@ export async function POST(req: NextRequest) {
         console.error("[SMTP] Lỗi kết nối:", verifyErr);
         throw new Error(
           "Không thể kết nối SMTP: " +
-            (verifyErr instanceof Error
-              ? verifyErr.message
-              : String(verifyErr))
+            (verifyErr instanceof Error ? verifyErr.message : String(verifyErr))
         );
       }
 
@@ -180,77 +180,50 @@ export async function POST(req: NextRequest) {
     Chúng tôi sẽ sớm liên hệ để xác nhận đơn hàng.
 
     Trân trọng,
-    TỤ Candle Shop
+    TỤ Candle
     `;
 
       const [sellerResult, customerResult] = await Promise.allSettled([
         transporter.sendMail({
-          from: `"TỤ Candle Shop" <${CONFIG.SMTP_USER}>`,
+          from: `"TỤ Candle" <${CONFIG.SMTP_USER}>`,
           replyTo: CONFIG.SMTP_USER,
           to: CONFIG.SELLER_EMAIL,
-
           subject: `Đơn hàng mới từ ${order.ho} ${order.ten}`,
-
           text: sellerText,
           html: sellerEmailHTML(order),
-
-          headers: {
-            "X-Mailer": "TỤ Candle Shop",
-          },
+          headers: { "X-Mailer": "TỤ Candle" },
         }),
 
         transporter.sendMail({
-          from: `"TỤ Candle Shop" <${CONFIG.SMTP_USER}>`,
+          from: `"TỤ Candle" <${CONFIG.SMTP_USER}>`,
           replyTo: CONFIG.SMTP_USER,
           to: order.email,
-
           subject: "TỤ Candle - Xác nhận đơn hàng",
-
           text: customerText,
           html: customerEmailHTML(order),
-
-          headers: {
-            "X-Mailer": "TỤ Candle Shop",
-          },
+          headers: { "X-Mailer": "TỤ Candle" },
         }),
       ]);
 
       if (sellerResult.status === "fulfilled") {
-        console.log(
-          "[Email] Gửi cho người bán thành công:",
-          sellerResult.value.messageId
-        );
+        console.log("[Email] Gửi cho người bán thành công:", sellerResult.value.messageId);
       } else {
-        console.error(
-          "[Email] Lỗi gửi cho người bán:",
-          sellerResult.reason
-        );
+        console.error("[Email] Lỗi gửi cho người bán:", sellerResult.reason);
       }
 
       if (customerResult.status === "fulfilled") {
-        console.log(
-          "[Email] Gửi cho khách hàng thành công:",
-          customerResult.value.messageId
-        );
+        console.log("[Email] Gửi cho khách hàng thành công:", customerResult.value.messageId);
       } else {
-        console.error(
-          "[Email] Lỗi gửi cho khách hàng:",
-          customerResult.reason
-        );
+        console.error("[Email] Lỗi gửi cho khách hàng:", customerResult.reason);
       }
     } else {
-      console.warn(
-        "[SMTP] Chưa cấu hình SMTP_USER hoặc SMTP_PASS, bỏ qua gửi email"
-      );
+      console.warn("[SMTP] Chưa cấu hình SMTP_USER hoặc SMTP_PASS, bỏ qua gửi email");
     }
 
     return NextResponse.json({ success: true, message: "Đặt hàng thành công" });
   } catch (err: unknown) {
     console.error("[Checkout] Lỗi:", err);
     const message = err instanceof Error ? err.message : "Lỗi server";
-    return NextResponse.json(
-      { success: false, message },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, message }, { status: 500 });
   }
 }

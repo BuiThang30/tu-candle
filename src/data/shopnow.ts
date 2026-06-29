@@ -42,7 +42,7 @@ export const products: Product[] = [
       muiHuong: "HƯƠNG THƠM NGUYÊN BẢN CỦA SÁP THANH NHẸ",
       trongLuong: "255G / 8,9 OZ",
       quaTrinhChay:
-        "ĐƯỢC TÍNH TOÁN KỸ THUẬT ĐỂ TẠO HIỆU ỨNG TAN CHẢY ĐIỀU KHẮC ĐẸP MẮT",
+        "ĐƯỢC TÍNH TOÁN KỸ THUẬT ĐỂ TẠO HIỆU ỨNG TAN CHẢY ĐIÊU KHẮC ĐẸP MẮT",
       thoiGianChay: "~10 GIỜ",
       mauSac:
         "ĐƯỢC THIẾT KẾ CHUYỂN ĐỘNG PHÂN TẦNG. SẮC ĐỘ MÀU CÓ THỂ CHÊNH LỆCH NHẸ GIỮA CÁC MẺ ĐỔ — ĐÂY LÀ ĐẶC TÍNH TỰ NHIÊN HOÀN TOÀN BÌNH THƯỜNG CỦA CHẤT LIỆU SÁP",
@@ -73,7 +73,7 @@ export const products: Product[] = [
       muiHuong: "HƯƠNG THƠM NGUYÊN BẢN CỦA SÁP THANH NHẸ",
       trongLuong: "255G / 8,9 OZ",
       quaTrinhChay:
-        "ĐƯỢC TÍNH TOÁN KỸ THUẬT ĐỂ TẠO HIỆU ỨNG TAN CHẢY ĐIỀU KHẮC ĐẸP MẮT",
+        "ĐƯỢC TÍNH TOÁN KỸ THUẬT ĐỂ TẠO HIỆU ỨNG TAN CHẢY ĐIÊU KHẮC ĐẸP MẮT",
       thoiGianChay: "~10 GIỜ",
       mauSac:
         "ĐƯỢC THIẾT KẾ CHUYỂN ĐỘNG PHÂN TẦNG. SẮC ĐỘ MÀU CÓ THỂ CHÊNH LỆCH NHẸ GIỮA CÁC MẺ ĐỔ — ĐÂY LÀ ĐẶC TÍNH TỰ NHIÊN HOÀN TOÀN BÌNH THƯỜNG CỦA CHẤT LIỆU SÁP",
@@ -104,7 +104,7 @@ export const products: Product[] = [
       muiHuong: "HƯƠNG THƠM NGUYÊN BẢN CỦA SÁP THANH NHẸ",
       trongLuong: "255G / 8,9 OZ",
       quaTrinhChay:
-        "ĐƯỢC TÍNH TOÁN KỸ THUẬT ĐỂ TẠO HIỆU ỨNG TAN CHẢY ĐIỀU KHẮC ĐẸP MẮT",
+        "ĐƯỢC TÍNH TOÁN KỸ THUẬT ĐỂ TẠO HIỆU ỨNG TAN CHẢY ĐIÊU KHẮC ĐẸP MẮT",
       thoiGianChay: "~10 GIỜ",
       mauSac:
         "ĐƯỢC THIẾT KẾ CHUYỂN ĐỘNG PHÂN TẦNG. SẮC ĐỘ MÀU CÓ THỂ CHÊNH LỆCH NHẸ GIỮA CÁC MẺ ĐỔ — ĐÂY LÀ ĐẶC TÍNH TỰ NHIÊN HOÀN TOÀN BÌNH THƯỜNG CỦA CHẤT LIỆU SÁP",
